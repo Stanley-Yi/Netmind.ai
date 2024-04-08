@@ -1,10 +1,13 @@
 // store image or repo url
 
-export const designInfo = {
-    width: 1728,
-}
+export type FooterLink = {
+    name: string;
+    path: string;
+    target?: '_self' | '_black';
+};
 
-export interface WindowSize {
-    width: number | undefined;
-    height: number | undefined;
-  }
+export interface FooterItemProps {
+    title: string;
+    links: FooterLink[];
+    extend?: React.ReactNode;
+}
