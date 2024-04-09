@@ -11,3 +11,9 @@ export interface FooterItemProps {
     links: FooterLink[];
     extend?: React.ReactNode;
 }
+
+export interface IntroBoardProps {
+    image: string;
+    title: string;
+    content: string;
+}
