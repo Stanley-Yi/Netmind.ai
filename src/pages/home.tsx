@@ -4,34 +4,9 @@ import Link from 'next/link';
 
 
 
-
-
-
 export default function Home() {
 
     const dis_category = ['DJ Equipments', 'Cameras', 'Game Consoles', 'Laptops'];
-
-    // const hero_img = ['/data/hero_1.jpg', '/data/hero_2.png', '/data/hero_3.jpg']
-
-    // const hero_small_img = ['/data/hero_small_1.png', '/data/hero_small_2.png', '/data/hero_small_3.png']
-
-    // const hero_small_square_img = ['/data/hero_small_square.jpeg', '/data/hero_small_square_2.jpeg', '/data/hero_small_square_3.jpeg']
-
-    // const [data_cat, setDataCat] = useState<CategoryTable[] | null>(null);
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const response: ResponseBodyType<any> = await queryAllCategories();
-    //             setDataCat(response.results);
-    //         } catch (error) {
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     }
-
-    //     fetchData();
-    // }, []);
-
 
 
     // @ts-ignore
