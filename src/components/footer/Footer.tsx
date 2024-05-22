@@ -16,7 +16,11 @@ const Footer: React.FC = () => {
     } as {[key: string] : FooterLink[]}
 
     return (
-        <footer className="bg-[#000] flex-shrink-0 w-full h-[644px]">
+        <footer className="bg-[#141414] flex-shrink-0 w-full h-[644px]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="2" viewBox="0 0 1920 2" fill="none">
+                <path d="M0 1L1920 0.999832" stroke="white" stroke-opacity="0.3" stroke-width="0.5" stroke-linecap="square"/>
+            </svg>
+
             <div className="flex justify-between">
                 {/* left part */}
                 <div className="ml-[259px]">

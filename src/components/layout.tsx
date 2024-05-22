@@ -8,7 +8,7 @@ type LayoutsProps = {
 
 const Layouts: FC<LayoutsProps> = ({children}): ReactElement => {
     return (
-        <div className="h-auto w-[1920px] flex flex-col bg-[#FAFAFA]">
+        <div className="h-auto w-[1920px] flex flex-col bg-[#000000]">
             <Header/>
             <div className="flex-grow flex flex-col mt-[-104px]">
                 <div className="flex-grow">{children}</div>

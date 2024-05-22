@@ -30,10 +30,10 @@ export default class MyDocument extends Document {
             <Html>
                 <Head />
                 <body className="bg-[#141414]">
-                <div app-root-container="">
-                    <Main />
-                </div>
-                <NextScript />
+                    <div app-root-container="">
+                        <Main />
+                    </div>
+                    <NextScript />
                 </body>
             </Html>
         );
