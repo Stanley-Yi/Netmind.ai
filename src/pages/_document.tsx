@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
         return (
             <Html>
                 <Head />
-                <body className="bg-[#FAFAFA]">
+                <body className="bg-[#141414]">
                 <div app-root-container="">
                     <Main />
                 </div>

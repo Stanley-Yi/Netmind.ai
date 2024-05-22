@@ -17,19 +17,20 @@ export default function Home() {
     // @ts-ignore
     return (
         <div>
-            <div className="relative h-screen">
-                <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: "url('/image 133.png')" }}></div>
-                
-                <div className="relative z-10 flex justify-start h-full pt-[106px]">
-                    <div className='w-[683px] h-full flex flex-col justify-center items-center'>
-                        <div className='w-[543px] h-[132px] ml-[90px]'>
-                            <span className='text-[#111] font-mulish text-6xl font-extrabold leading-[110%]'>
+            <div className="relative h-[1080px]">
+                <div className="absolute inset-0 bg-contain bg-center z-0" style={{ backgroundImage: "url('/image 133.png')" }}></div>
+                <div className="absolute inset-0 flex-shrink-0 bg-black bg-opacity-15 filter blur-[5px] z-10"></div>
+
+                <div className="relative z-30 flex justify-center h-full pt-[104px]">
+                    <div className='w-[1285px] h-full flex flex-col justify-center items-center'>
+                        <div className='w-full h-[110px]'>
+                            <span className='text-white font-roboto text-[100px] font-semibold leading-[110px]'>
                                 A New Civilisation Of Agents
                             </span>
                         </div>
 
-                        <div className='w-[533px] h-[216px] ml-[90px] mt-[61px]'>
-                            <span className='text-[#666] font-inter text-xl font-normal leading-9'>
+                        <div className='w-[908px] h-[250px] mt-[64px]'>
+                            <span className='text-white text-center font-inter text-[36px] font-normal leading-[50.4px]'>
                                 The NetMind.xyz project, aiming to create a self-evolving agent society. 
                                 You're envisioning a system where agents not only operate individually but also interact, collaborate, and evolve within a societal framework.
                             </span>
