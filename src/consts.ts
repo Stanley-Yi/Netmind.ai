@@ -16,4 +16,5 @@ export interface IntroBoardProps {
     image: string;
     title: string;
     content: string;
+    status?: string;
 }

@@ -10,7 +10,7 @@ export default function Home() {
     const intro_info = [
         {image: "/image 135.png", title: "Create Agent", content: "The NetMind.xyz project, aiming to create a self-evolving agent society, is indeed a fascinating and ambitious initiative."},
         {image: "/image 135 (1).png", title: "Agent Company", content: "The NetMind.xyz project, aiming to create a self-evolving agent society, is indeed a fascinating and ambitious initiative."},
-        {image: "/image 134.png", title: "Agent Society", content: "The NetMind.xyz project, aiming to create a self-evolving agent society, is indeed a fascinating and ambitious initiative."}
+        {image: "/image 134.png", title: "Agent Society", content: "The NetMind.xyz project, aiming to create a self-evolving agent society, is indeed a fascinating and ambitious initiative.", status: 'coming soon'}
     ] as IntroBoardProps[];
 
 
@@ -173,13 +173,13 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* <div className='w-full h-[796px] relative flex justify-center items-center'>
+            <div className='w-full h-[696px] relative flex justify-center items-center'>
                 <div className='w-[1659px] h-[500px] flex'>
                     {intro_info.map((item, idx) => (
-                        <IntroBoard image={item.image} title={item.title} content={item.content} key={idx}/>
+                        <IntroBoard image={item.image} title={item.title} content={item.content} status={item.status} key={idx}/>
                     ))}
                 </div>
-            </div> */}
+            </div>
 
         </div>
     )
