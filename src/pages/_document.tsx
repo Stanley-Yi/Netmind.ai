@@ -28,6 +28,8 @@ export default class MyDocument extends Document {
 
         return (
             <Html>
+                <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
                 <Head />
                 <body className="bg-[#141414]">
                     <div app-root-container="">
