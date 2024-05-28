@@ -18,3 +18,10 @@ export interface IntroBoardProps {
     content: string;
     status?: string;
 }
+
+export interface ServiceBoardProps {
+    image: string;
+    title: string;
+    url: string;
+    logo?: any;
+}

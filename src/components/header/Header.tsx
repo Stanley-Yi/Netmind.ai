@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = () => {
 
     return (
 
-        <div className="w-full h-[104px] flex items-center border-b border-[#F4F4F4] bg-white bg-opacity-30 flex-shrink-0 z-50">
+        <div className="w-full h-[104px] flex items-center border-b border-[#F4F4F4] bg-white bg-opacity-60 flex-shrink-0 z-50">
             <div className="mx-[90px] mt-[24px] mb-[22px] flex items-center z-20">
                 <div className="w-[282px] h-[58px] flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="55" height="29" viewBox="0 0 55 29" fill="none">
