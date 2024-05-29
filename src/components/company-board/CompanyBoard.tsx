@@ -52,7 +52,7 @@ const CompanyBoard: React.FC<CompanyBoard> = ({
                     <div className="text-[#B3B3B3] font-inter text-[24px] font-normal leading-normal">to</div>
                     <input
                         type="text"
-                        className="w-10 ml-4 h-10 rounded border border-zinc-400 p-1 text-center align-middle"
+                        className="w-10 ml-4 h-10 rounded border text-[24px] border-zinc-400 p-1 text-center align-middle"
                         style={{ height: "38px", lineHeight: "36px" }}
                     />
                 </div>
