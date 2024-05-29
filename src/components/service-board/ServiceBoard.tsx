@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from 'next/image';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ServiceBoardProps } from '@/consts';
 
-interface ServiceBoardProps {
-    image: string;
-    title: string;
-}
 
 interface ServiceBoardSection {
     section: string;
@@ -15,27 +12,33 @@ interface ServiceBoardSection {
 }
 
 const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
-    const [padding, setPadding] = useState('pl-[90px]');
+
+    const [sliderMargin, setSliderMargin] = useState({ marginLeft: '90px', marginRight: '0px' });
 
     const settings = {
-        className: `w-full ${padding}`,
         infinite: false,
         centerMode: false,
+        draggable: services.length > 5,
+        swipe: services.length > 5,
         slidesToShow: 5.3,
+        // lazyLoad: 'progressive',
         arrows: false,
-        afterChange: handleSlideChange
+        beforeChange: (current: any, next: any) => handleMargin(current, next),
+        afterChange: (current: any) => handleMargin(current, current)
     };
 
-    function handleSlideChange(index: number) {
-        const totalSlides = services.length;
-        const slidesToShow = Math.floor(settings.slidesToShow);
-        if (index === 0) {
-            setPadding('pl-[90px]');
-        } else if (index + slidesToShow >= totalSlides) {
-            setPadding('pr-[90px]');
-        } else {
-            setPadding('');
+    function handleMargin(current: any, next: number) {
+        let newMarginLeft = '0px';
+        let newMarginRight = '0px';
+
+        if (next === 0) {
+            newMarginLeft = '90px';
         }
+        else if (next + Math.ceil(settings.slidesToShow) >= services.length) {
+            newMarginRight = '90px';
+        }
+
+        setSliderMargin({ marginLeft: newMarginLeft, marginRight: newMarginRight });
     }
 
     return (
@@ -54,18 +57,22 @@ const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
                 </div>
             </div>
 
-            <div className="mt-[35px]">
+            <div className="mt-[35px]" style={{ marginLeft: sliderMargin.marginLeft, marginRight: sliderMargin.marginRight }}>
                 <Slider {...settings}>
                     {services && services.map((item, idx) => (
                         <div className="w-[351px] h-[199px] flex justify-start" key={idx}>
-                            <div className="w-[335px] h-full overflow-hidden relative">
+                            <div className="w-[335px] h-full overflow-hidden relative flex items-end justify-start">
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     width={335}
                                     height={199}
-                                    style={{ width: '100%', height: '100%', objectFit: 'fill', position: 'absolute' }}
+                                    style={{ width: '100%', height: '100%', objectFit: 'fill', position: 'absolute', zIndex: 10 }}
                                 />
+                                <div className="ml-[16px] mb-[14px] w-[180px] h-auto z-40 flex flex-col-reverse justify-start content-end">
+                                    <div className="text-white text-2xl font-medium font-inter">{item.title}</div>
+                                    <Image className="mb-[9px]" src={item.logo} alt={item.title} width={32} height={32}/>
+                                </div>
                             </div>
                         </div>
                     ))}

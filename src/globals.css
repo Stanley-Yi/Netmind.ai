@@ -40,3 +40,7 @@ body {
     width: '100vw';
   }
 }
+
+.slick-slide {
+  width: 346px !important;
+}
