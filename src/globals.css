@@ -44,3 +44,16 @@ body {
 .slick-slide {
   width: 346px !important;
 }
+
+.MuiPaginationItem-root {
+  color: #B3B3B3 !important;
+  font-family: Inter !important;
+  font-size: 24px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+}
+
+.MuiPaginationItem-root.Mui-selected {
+  color: white !important;
+}

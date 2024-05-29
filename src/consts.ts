@@ -25,3 +25,10 @@ export interface ServiceBoardProps {
     url: string;
     logo?: any;
 }
+
+export interface CompanyBoardProps {
+    name: string;
+    description: string;
+    tag: string[];
+    member: any[];
+}
