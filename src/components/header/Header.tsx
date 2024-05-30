@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = () => {
                 <div className="w-[1300px] h-[20px] flex items-center justify-center">
                     {navigator_items.map((item, idx)  => (
                         <div className="mx-[40px] flex items-center justify-center cursor-pointer" key={idx}>
-                            <span className="text-[#111] text-center font-roboto text-base font-normal leading-normal">
+                            <span className="text-[#111] text-center font-roboto text-xl font-normal leading-normal">
                                 {item.name}
                             </span>
                         </div>

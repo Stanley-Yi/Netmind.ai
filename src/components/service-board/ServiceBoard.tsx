@@ -42,7 +42,7 @@ const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
     }
 
     return (
-        <div className="w-full h-[300px] my-[38px]">
+        <div className="w-full h-[300px] my-[76px]">
             <div className="h-[66px] flex justify-between items-center mx-[90px]">
                 <div className="text-[#F4F4F4] font-roboto text-[56px] font-normal leading-normal">
                     {section}

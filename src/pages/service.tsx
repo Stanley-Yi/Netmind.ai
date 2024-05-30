@@ -58,7 +58,7 @@ export default function Service() {
                             </span>
                         </div>
 
-                        <div className='w-[1255px] h-[84px] mt-[36px] flex items-center'>
+                        <div className='w-[1255px] h-[84px] mt-[36px] flex items-center justify-center'>
                             <span className='text-white text-center font-inter text-[30px] font-normal leading-[140%]'>
                                 You're envisioning a system where agents not only operate individually but also interact, <br/> collaborate, and evolve within a societal framework.
                             </span>

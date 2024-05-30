@@ -12,16 +12,16 @@ const FooterItem: React.FC<FooterItemProps> = (
 ) => {
 
     return (
-        <div className="w-[139px] mx-[44px] h-[200px] my-[5px]">
+        <div className="w-[170px] ml-[60px] h-[200px] my-[5px]">
             <div className="h-[30px]">
-                <span className="text-white font-roboto text-lg font-semibold leading-7">{title}</span>
+                <span className="text-white font-roboto text-2xl font-semibold leading-7">{title}</span>
             </div>
-            <ul className="h-[24px] flex-shrink-0">
+            <ul className="h-[24px] flex-shrink-0 mt-[16px]">
                 {links.map((item, idx) =>(
-                    <li key={idx} className="my-[10px]">
+                    <li key={idx} className="my-[12px]">
                         <Link
                             href={item.path}
-                            className="inline-block text-[rgba(255,255,255,0.7)] font-roboto text-base font-normal leading-6 cursor-pointer rounded-md no-underline"
+                            className="inline-block text-[rgba(255,255,255,0.7)] font-roboto text-xl font-normal leading-6 cursor-pointer rounded-md no-underline"
                         >{item.name}</Link>
                     </li>
                 ))}

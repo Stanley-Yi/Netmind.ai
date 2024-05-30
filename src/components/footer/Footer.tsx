@@ -73,9 +73,9 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* right part */}
-                <div className="mr-[169px]">
-                    <div className="mt-[100px]">
-                        <div className="grid grid-cols-3 grid-rows-2 gap-4 w-[476px] h-[420px]">
+                <div className="mr-[159px]">
+                    <div className="mt-[100px] transform translate-x-[110px]">
+                        <div className="grid grid-cols-3 grid-rows-2 gap-4 w-[700px] h-[420px]">
                             {Object.keys(footer_links).map((key, idx) => (
                                 <div className="col-span-1 row-span-2" key={idx}>
                                     <FooterItem
