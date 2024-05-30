@@ -80,28 +80,28 @@ export default function ServiceDetail() {
 
 
                             <div className='w-full h-[687px] px-[320px] flex-col justify-start items-center my-[10px]'>
-                                <div className='flex justify-start my-[18px]'>
+                                <div className='flex justify-start items-center my-[18px]'>
                                     <div className="w-12 h-12 bg-gradient-to-br from-slate-500 via-indigo-600 to-red-300 rounded-3xl backdrop-blur-[200px]"/>
                                     <div className="w-auto max-w-[726px] px-4 py-3 h-auto bg-white opacity-[61%] ml-[12px] rounded flex items-center">
                                         <div className="text-neutral-900 text-base font-normal font-roboto leading-normal">Here is an example for a one line answer.</div>
                                     </div>
                                 </div>
 
-                                <div className='flex flex-row-reverse justify-start my-[18px]'>
+                                <div className='flex flex-row-reverse justify-start items-center my-[18px]'>
                                     <div className="w-12 h-12 bg-black rounded-3xl" />
                                     <div className="w-auto max-w-[726px] px-4 py-3 h-auto bg-white opacity-[61%] mr-[12px] rounded flex items-center">
                                         <div className="text-neutral-900 text-base font-normal font-roboto leading-normal">Here is an example for a one line question.</div>
                                     </div>
                                 </div>
 
-                                <div className='flex justify-start my-[18px]'>
+                                <div className='flex justify-start items-center my-[18px]'>
                                     <div className="w-12 h-12 bg-gradient-to-br from-slate-500 via-indigo-600 to-red-300 rounded-3xl backdrop-blur-[200px]"/>
                                     <div className="w-auto max-w-[726px] px-4 py-3 h-auto bg-white opacity-[61%] ml-[12px] rounded flex items-center">
                                         <div className="text-neutral-900 text-base font-normal font-roboto leading-normal">Here is an example for a two or more lines answer. Here is an example for a two or more lines answer. Here is an example for a two or more lines answer.</div>
                                     </div>
                                 </div>
 
-                                <div className='flex flex-row-reverse justify-start my-[18px]'>
+                                <div className='flex flex-row-reverse justify-start items-center my-[18px]'>
                                     <div className="w-12 h-12 bg-black rounded-3xl" />
                                     <div className="w-auto max-w-[726px] px-4 py-3 h-auto bg-white opacity-[61%] mr-[12px] rounded flex items-center">
                                         <div className="text-neutral-900 text-base font-normal font-roboto leading-normal">Here is an example for a two or more lines answer. Here is an example for a two or more lines answer. Here is an example for a two or more lines answer.</div>
