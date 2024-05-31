@@ -18,7 +18,7 @@ export default function Home() {
             Cookies.set(key, value, { expires: 7 });
         });
 
-        getUser();
+        // getUser();
     }, []);
 
     const getUser = async () => {
