@@ -5,6 +5,8 @@ import {Layout} from '@/components'
 import 'tailwindcss/tailwind.css'
 import '@/globals.css'
 import dynamic from "next/dynamic";
+import {SWRConfig} from "swr";
+
 
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: React.ReactElement) => React.ReactNode
@@ -43,11 +45,17 @@ const App = ({Component, pageProps}: AppPropsWithLayout) => {
     }, [scale]);
 
     return (
-        <div ref={wrapperRef} className="wrapper" style={{ transform: `scale(${scale})` }}>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </div>
+        <SWRConfig value={{
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false
+        }}>
+            <div ref={wrapperRef} className="wrapper" style={{ transform: `scale(${scale})` }}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </div>
+        </SWRConfig>
     );
 }
 

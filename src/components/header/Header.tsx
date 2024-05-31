@@ -24,6 +24,8 @@ const Header: React.FC<HeaderProps> = () => {
                 </svg>, url: "/"},
     ]
 
+    const account_url = 'https://accounts.protago-dev.com/?url=https://xyz.netmind.ai&sysCode=4912e615'
+
     return (
 
         <div className="w-full h-[104px] flex items-center border-b border-[#F4F4F4] bg-white bg-opacity-60 flex-shrink-0 z-50">
@@ -49,7 +51,7 @@ const Header: React.FC<HeaderProps> = () => {
                 </div>
 
                 <div className="w-[141px] h-[50px] flex-shrink-0 flex items-center justify-center">
-                    <button className="rounded-[25px] px-3 py-2 border border-black flex items-center justify-center cursor-pointer">
+                    <button className="rounded-[25px] px-3 py-2 border border-black flex items-center justify-center cursor-pointer" onClick={() => router.push(account_url)}>
                         <span className="text-[#111] text-center font-roboto text-base font-normal leading-normal">
                             Log in | Sign up
                         </span>

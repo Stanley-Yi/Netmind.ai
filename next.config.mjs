@@ -11,6 +11,9 @@ const nextConfig = {
             },
         ];
     },
+    env: {
+        PUBLIC_API_BASE_URL: "http://13.40.213.162:8000",
+    },
 }
 
 export default nextConfig;

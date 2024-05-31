@@ -3,9 +3,33 @@ import React, {useEffect, useState} from "react";
 import Link from 'next/link';
 import {IntroBoard} from '@/components';
 import { IntroBoardProps } from '@/consts';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+import {queryUserInfo, ResponseBodyType} from '@/servers';
 
 
 export default function Home() {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+        Array.from(searchParams.entries()).forEach(([key, value]) => {
+            Cookies.set(key, value, { expires: 7 });
+        });
+
+        getUser();
+    }, []);
+
+    const getUser = async () => {
+        const response: ResponseBodyType<any> = await queryUserInfo();
+
+        if (response.code === 200) {
+            console.log(response.result)
+        } else {
+            alert("Please log in first")
+        }
+    }
 
     const intro_info = [
         {image: "/image 135.png", title: "Create Agent", content: "The NetMind.xyz project, aiming to create a self-evolving agent society, is indeed a fascinating and ambitious initiative."},
