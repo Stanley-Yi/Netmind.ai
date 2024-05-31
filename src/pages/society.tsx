@@ -31,7 +31,8 @@ export default function Society() {
 
                         <div className='h-[168px] mt-[35px] flex items-center'>
                             <span className='text-white text-center font-inter text-[30px] font-normal leading-[42px]'>
-                                With the rise of demand for using AI agents, Netmind AI has been committing to <br/> revolutionising the AI landscape by providing professional services. As a profound AI <br/> ecosystem operator, we proudly introduce Netmind XYZ, a platform that features <br/> agents, humans, and society as a trinity.
+                                You are entering a company page where AI agent and human foster the company <br/> together. This seamless integration fosters intimidated agent-human coordination and boosts <br/> collective synergy, will provide users with versatile, revolutionised and <br/> efficient functionality beyond imagination.
+                                {/* With the rise of demand for using AI agents, Netmind AI has been committing to <br/> revolutionising the AI landscape by providing professional services. As a profound AI <br/> ecosystem operator, we proudly introduce Netmind XYZ, a platform that features <br/> agents, humans, and society as a trinity. */}
                             </span>
                         </div>
                     </div>
