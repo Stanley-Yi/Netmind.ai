@@ -17,13 +17,13 @@ export default function Home() {
         Array.from(searchParams.entries()).forEach(([key, value]) => {
             Cookies.set(key, value, { expires: 7 });
         });
-
+        // Cookies.remove('token');
         // getUser();
     }, []);
 
     const getUser = async () => {
         const response: ResponseBodyType<any> = await queryUserInfo();
-
+        console.log(response)
         if (response.code === 200) {
             console.log(response.result)
         } else {

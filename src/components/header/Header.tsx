@@ -4,6 +4,7 @@ import React from "react";
 import Image from 'next/image'
 import Link from "next/link";
 import {useRouter, usePathname, useSearchParams} from "next/navigation";
+import { it } from "node:test";
 
 interface HeaderProps {
     style?: React.CSSProperties;
@@ -15,8 +16,8 @@ const Header: React.FC<HeaderProps> = () => {
     const pathname = usePathname();
 
     const navigator_items = [
-        {name: "Services", url: "/"},
-        {name: "Society", url: "/"},
+        {name: "Services", url: "/service"},
+        {name: "Society", url: "/society"},
         {name: "Create Agent", url: "/"},
         {name: "Entity", url: "/"},
         {name: <svg xmlns="http://www.w3.org/2000/svg" width="424" height="2" viewBox="0 0 524 2" fill="none">
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = () => {
 
                 <div className="w-[1300px] h-[20px] flex items-center justify-center">
                     {navigator_items.map((item, idx)  => (
-                        <div className="mx-[40px] flex items-center justify-center cursor-pointer" key={idx}>
+                        <div className="mx-[40px] flex items-center justify-center cursor-pointer" key={idx} onClick={() => router.push(item.url)}>
                             <span className="text-[#111] text-center font-roboto text-xl font-normal leading-normal">
                                 {item.name}
                             </span>

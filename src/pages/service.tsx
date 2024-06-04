@@ -9,7 +9,7 @@ export default function Service() {
 
     const service_info = [
         {'section': 'Service - Marketing', 'services': [
-            {image: '/Rectangle 69.png', title: 'Solving math problem', url: '', logo: '/Logo Shapes 21.svg'},
+            {image: '/Rectangle 69.png', title: 'Solving math problem', url: '/service_detail', logo: '/Logo Shapes 21.svg'},
             {image: '/Rectangle 70 (1).png', title: 'Longevity', url: '', logo: '/Logo Shapes 26.svg'},
             {image: '/Rectangle 70 (2).png', title: 'Marketing', url: '', logo: '/Standard Collection 3.svg'},
             {image: '/Rectangle 70 (3).png', title: 'Block chain', url: '', logo: '/Standard Collection 12.svg'},

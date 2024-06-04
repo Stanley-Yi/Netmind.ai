@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ServiceBoardProps } from '@/consts';
+import { Router, useRouter } from "next/router";
 
 
 interface ServiceBoardSection {
@@ -12,6 +13,8 @@ interface ServiceBoardSection {
 }
 
 const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
+
+    const router = useRouter();
 
     const [sliderMargin, setSliderMargin] = useState({ marginLeft: '90px', marginRight: '0px' });
 
@@ -61,7 +64,7 @@ const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
                 <Slider {...settings}>
                     {services && services.map((item, idx) => (
                         <div className="w-[351px] h-[199px] flex justify-start" key={idx}>
-                            <div className="w-[335px] h-full overflow-hidden relative flex items-end justify-start">
+                            <div className="w-[335px] h-full overflow-hidden relative flex items-end justify-start cursor-pointer" onClick={() => router.push('/service_detail')}>
                                 <Image
                                     src={item.image}
                                     alt={item.title}
