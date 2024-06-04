@@ -11,12 +11,11 @@ export default function ServiceDetail() {
             <div className="relative my-[157px] mx-[90px]">
 
                 <div className="relative w-full flex flex-col">
-                    <div className="text-white font-inter text-[28px] font-medium leading-[35px] uppercase opacity-60">
-                        Contribute your GPUs
+                    <div className="text-white font-inter text-[28px] font-medium leading-[35px] opacity-60">
+                        Service
                     </div>
 
                     <div className='mt-[16px] text-[#FAFAFA] font-inter text-[56px] font-normal leading-[56px]'>
-                        Service <br/>
                         NetMind Marketing
                     </div>
 
