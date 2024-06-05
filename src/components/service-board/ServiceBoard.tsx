@@ -64,13 +64,17 @@ const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
                 <Slider {...settings}>
                     {services && services.map((item, idx) => (
                         <div className="w-[351px] h-[199px] flex justify-start" key={idx}>
-                            <div className="w-[335px] h-full overflow-hidden relative flex items-end justify-start cursor-pointer" onClick={() => router.push('/service_detail')}>
-                                <Image
+                            <div className="w-[335px] h-full overflow-hidden relative flex items-end justify-start cursor-pointer" onClick={() => router.push(item.url)}>
+                                <img
                                     src={item.image}
                                     alt={item.title}
-                                    width={335}
-                                    height={199}
-                                    style={{ width: '100%', height: '100%', objectFit: 'fill', position: 'absolute', zIndex: 10 }}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        position: 'absolute',
+                                        zIndex: 10
+                                    }}
                                 />
                                 <div className="ml-[16px] mb-[14px] w-[180px] h-auto z-40 flex flex-col-reverse justify-start content-end">
                                     <div className="text-white text-2xl font-medium font-inter">{item.title}</div>

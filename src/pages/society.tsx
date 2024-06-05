@@ -3,15 +3,53 @@ import React, {useEffect, useState} from "react";
 import Link from 'next/link';
 import {CompanyBoard} from '@/components';
 import { CompanyBoardProps } from '@/consts';
+import {queryAllCompany, AllCompanyProps, ResponseBodyType} from '@/servers';
+import { describe, it } from 'node:test';
 
 
 export default function Society() {
 
-    const company_template = {name: 'Company name', 
-                                description: 'Company description Company description Company description Company description Company description Company description ', 
-                                tag: ['Research', 'Education'], 
-                                member: new Array(7).fill(null)} 
-    const company_list = new Array(9).fill(company_template) as CompanyBoardProps[];
+    const [company, setCompany] = useState<AllCompanyProps[]>();
+    const [totalPage, setTotalPage] = useState<number>(1);
+    const [companyList, setCompanyList] = useState<CompanyBoardProps[]>();
+
+    useEffect(() => {
+        const getAllCompany = async () => {
+            try {
+                const response: ResponseBodyType<any> = await queryAllCompany();
+                if (response.code === 200) {
+                    setCompany(response.result['companies'])
+                    setTotalPage(response.result['num_page'])
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        getAllCompany();
+    }, []);
+
+    useEffect(() => {
+        const company_list = [] as CompanyBoardProps[];
+
+        company?.slice(0, 9).map((item, idx) => {
+            company_list.push({
+                name: item.companyName,
+                description: item.description,
+                tag: item.labels,
+                member: new Array(7).fill(null)
+            })
+        })
+
+        setCompanyList(company_list);
+
+    }, [company]);
+
+    // const company_template = {name: 'Company name', 
+    //                             description: 'Company description Company description Company description Company description Company description Company description ', 
+    //                             tag: ['Research', 'Education'], 
+    //                             member: new Array(7).fill(null)} 
+    // const company_list = new Array(9).fill(company_template) as CompanyBoardProps[];
 
 
     // @ts-ignore
@@ -40,7 +78,7 @@ export default function Society() {
             </div>
 
             <div className='h-auto my-[100px] relative'>
-                <CompanyBoard company_list={company_list}/>
+                {companyList ? <CompanyBoard company_list={companyList} page_num={totalPage}/> : <></>}
             </div>
 
             <div className="w-[1568px] h-[658px] mx-[90px] my-[100px] flex-col justify-start items-start gap-12 inline-flex">

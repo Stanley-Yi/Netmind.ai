@@ -7,11 +7,13 @@ import { CompanyBoardProps } from '@/consts';
 
 interface CompanyBoard {
     company_list: CompanyBoardProps[];
+    page_num: number;
 }
 
 
 const CompanyBoard: React.FC<CompanyBoard> = ({
-    company_list
+    company_list,
+    page_num
 }) => {
 
     return (
@@ -24,7 +26,7 @@ const CompanyBoard: React.FC<CompanyBoard> = ({
 
             <div className="grid grid-cols-3 gap-4">
                 {company_list.map((item: CompanyBoardProps, idx: number) => (
-                    <div className="w-[560px] h-[268px] rounded-[20px] backdrop-blur-[10px] bg-neutral-900 flex flex-col" key={idx}>
+                    <div className="w-[560px] h-[268px] rounded-[20px] backdrop-blur-[10px] bg-neutral-900 flex flex-col overflow-hidden" key={idx}>
                         <div className="ml-[16px] mt-[16px] text-white text-2xl font-normal font-['Inter']">{item.name}</div>
                         <div className="w-[522px] ml-[16px] mt-[10px] text-neutral-400 text-xl font-normal font-inter">{item.description}</div>
                         <div className="w-[200px] h-8 ml-[16px] mt-[16px] flex">
@@ -45,7 +47,7 @@ const CompanyBoard: React.FC<CompanyBoard> = ({
                 <div className="text-[#B3B3B3] font-inter text-[24px] font-normal leading-normal">Page</div>
 
                 <Stack spacing={2}>
-                    <Pagination count={11} shape="rounded" hidePrevButton hideNextButton/>
+                    <Pagination count={page_num} shape="rounded" hidePrevButton hideNextButton/>
                 </Stack>
                 
                 <div className="ml-[42px] flex items-center justify-start">

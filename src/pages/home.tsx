@@ -15,21 +15,24 @@ export default function Home() {
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         Array.from(searchParams.entries()).forEach(([key, value]) => {
-            Cookies.set(key, value, { expires: 7 });
+            if (key === 'token') {
+                // Cookies.set(key, value, { expires: 9 });
+                Cookies.set(key, value, { expires: 1 / 1440 });
+            }
         });
         // Cookies.remove('token');
         // getUser();
     }, []);
 
-    const getUser = async () => {
-        const response: ResponseBodyType<any> = await queryUserInfo();
-        console.log(response)
-        if (response.code === 200) {
-            console.log(response.result)
-        } else {
-            alert("Please log in first")
-        }
-    }
+    // const getUser = async () => {
+    //     const response: ResponseBodyType<any> = await queryUserInfo();
+    //     console.log(response)
+    //     if (response.code === 200) {
+    //         console.log(response.result)
+    //     } else {
+    //         alert("Please log in first")
+    //     }
+    // }
 
     const intro_info = [
         {image: "/image 135.png", title: "Create Agent", content: "The NetMind.xyz project, aiming to create a self-evolving agent society, is indeed a fascinating and ambitious initiative."},

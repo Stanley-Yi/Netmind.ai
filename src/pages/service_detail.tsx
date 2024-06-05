@@ -1,9 +1,46 @@
 import Image from 'next/image';
 import React, {useEffect, useState} from "react";
 import Link from 'next/link';
+import {queryServiceByID, SingleServiceProps, ResponseBodyType} from '@/servers';
+import Cookies from 'js-cookie';
 
 
 export default function ServiceDetail() {
+
+    const url = new URL(window.location.href);
+    const searchParams = new URLSearchParams(url.search);
+
+    const [service, setService] = useState<SingleServiceProps>();
+
+    useEffect(() => {
+        const getServiceByID = async (id: string) => {
+            try {
+                const response: ResponseBodyType<any> = await queryServiceByID(id);
+                if (response.code === 200) {
+                    setService(response.result)
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        const service_id = searchParams.get('id');
+        if (service_id) {
+            getServiceByID(service_id)
+        }
+    }, []);
+
+    const handleVisitWebsite = (url: string | undefined) => {
+        const token = Cookies.get('token');
+
+        if (token) {
+            if (url) {
+                window.open(`${url}/?token=${token}`, '_blank', 'noopener,noreferrer');
+            }
+        } else {
+            alert("You can only use the service after logging in")
+        }
+    }
 
     // @ts-ignore
     return (
@@ -16,15 +53,15 @@ export default function ServiceDetail() {
                     </div>
 
                     <div className='mt-[16px] text-[#FAFAFA] font-inter text-[56px] font-normal leading-[56px]'>
-                        NetMind Marketing
+                        {service?.XYZ_service_name}
                     </div>
 
                     <div className='mt-[32px] flex justify-start'>
-                        <div className="w-[210px] h-14 px-6 py-4 bg-white rounded-[14px] justify-center items-center gap-2 inline-flex">
+                        <div className="w-[210px] h-14 px-6 py-4 bg-white rounded-[14px] justify-center items-center gap-2 inline-flex cursor-pointer" onClick={() => handleVisitWebsite(service?.XYZ_service_product_url)}>
                             <div className="text-zinc-950 text-xl font-semibold font-inter">Visit the website</div>
                         </div>
 
-                        <div className="w-[179px] ml-[24px] h-14 px-6 py-4 rounded-[14px] border border-white justify-center items-center gap-2 inline-flex">
+                        <div className="w-[179px] ml-[24px] h-14 px-6 py-4 rounded-[14px] border border-white justify-center items-center gap-2 inline-flex cursor-pointer">
                             <div className="text-neutral-50 text-xl font-semibold font-inter">Using the API</div>
                         </div>
                     </div>
@@ -33,15 +70,15 @@ export default function ServiceDetail() {
                 <div className='relative mt-[80px] w-full flex justify-between'>
                     <div className='w-auto h-auto max-w-[66%] flex flex-col justify-start'>
                         <div className='self-stretch w-full text-white font-inter text-[44px] font-medium leading-[55px]'>
-                            NetMind Marketing Introduction 
+                            {service?.XYZ_service_name} Introduction 
                         </div>
 
                         <div className='mt-[16px] w-full self-stretch text-white font-inter text-2xl font-normal leading-[35.04px]'>
-                            The interplay of agent-based systems within artificial intelligence heralds a transformative era, inspired by the complex social structures and communication methods of natural societies. Our paper introduces the XYZ framework, an innovative approach designed to elevate the capabilities of agent societies beyond human productivity and creativity. This framework is rooted in the evolution and functionalities of Large Language Models (LLMs) and builds upon recent advancements in multi-agent systems, such as AutoGen and MetaGPT, which have significantly enhanced agent collaboration and autonomy through conversation programming paradigms, dynamic scheduling, and role-playing methods. 
+                            {service?.description}
                         </div>
                     </div>
 
-                    <img className="w-auto h-auto max-w-[33%] max-h-full" src="/Rectangle 177.png" />
+                    <img className="w-auto h-auto max-w-[33%] max-h-full" src={service?.xyz_page_image_url} />
                 </div>
 
                 <div className='relative mt-[128px] flex flex-col'>
