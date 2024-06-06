@@ -39,4 +39,16 @@ export interface AllCompanyProps {
     id: string;
     labels: string[];
     updatedAt: string;
+    companyOfficialUrl: string;
+}
+
+export interface SingleCompanyProps {
+    company_logo_url: string;
+    company_name: string;
+    company_official_url: string;
+    created_at: string;
+    description: string;
+    id: string;
+    labels: string[];
+    updated_at: string;
 }
