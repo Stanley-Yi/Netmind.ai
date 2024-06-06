@@ -31,4 +31,5 @@ export interface CompanyBoardProps {
     description: string;
     tag: string[];
     member: any[];
+    url: string;
 }

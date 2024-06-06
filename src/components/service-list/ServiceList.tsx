@@ -3,38 +3,38 @@ import Image from 'next/image';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { CompanyBoardProps } from '@/consts';
-import { Router, useRouter } from "next/router";
 
 
 interface CompanyBoard {
-    company_list: CompanyBoardProps[];
+    service_list: CompanyBoardProps[];
     page_num: number;
 }
 
 
-const CompanyBoard: React.FC<CompanyBoard> = ({
-    company_list,
+const ServiceList: React.FC<CompanyBoard> = ({
+    service_list,
     page_num
 }) => {
 
-    const router = useRouter();
-
     return (
-        <div className="h-auto my-[38px] mx-[90px]">
+        <div className="h-auto my-[38px]">
             <div className="h-[70px] flex justify-start my-[36px]">
-                <div className="text-[#F4F4F4] font-roboto text-[60px] font-medium leading-normal">
-                    Company List
+                <div className="text-white font-inter text-[44px] font-medium leading-[55px]">
+                    Service List
                 </div>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-                {company_list.map((item: CompanyBoardProps, idx: number) => (
-                    <div className="w-[560px] h-[268px] rounded-[20px] backdrop-blur-[10px] bg-neutral-900 flex flex-col overflow-hidden cursor-pointer" key={idx} onClick={() => router.push(item.url)}>
-                        <div className="ml-[16px] mt-[16px] text-white text-2xl font-normal font-inter">{item.name}</div>
+                {service_list.map((item: CompanyBoardProps, idx: number) => (
+                    <div className="w-[560px] h-[268px] rounded-[20px] backdrop-blur-[10px] bg-neutral-900 flex flex-col overflow-hidden" key={idx}>
+                        <div className="ml-[16px] mt-[16px] text-white text-2xl font-normal font-['Inter']">{item.name}</div>
                         <div className="w-[522px] ml-[16px] mt-[10px] text-neutral-400 text-xl font-normal font-inter">{item.description}</div>
-                        <div className="w-[200px] h-8 ml-[16px] mt-[16px] flex">
-                            {item.tag?.map((elem) => {
-                                return <div className="text-stone-300 bg-[rgba(239,255,255,0.50)] mx-1 rounded-[4px] px-2 text-xl font-normal font-inter">{elem}</div>
+                        <div className="w-full h-8 mx-[16px] mt-[16px] flex">
+                            {item.tag?.map((elem, index) => {
+                                const bgColorClass = index % 2 === 0 ? "bg-[#2f2b4a]" : "bg-[#3a3424]";
+                                return <div className={`w-auto h-8 p-1 mx-1 ${bgColorClass} rounded justify-center items-center gap-2.5 inline-flex`}>
+                                            <div className="text-stone-300 text-xl font-normal font-inter">{elem}</div>
+                                        </div>
                             })}
                         </div>
                         <div className="ml-[16px] mt-[16px] flex justify-start">
@@ -67,4 +67,4 @@ const CompanyBoard: React.FC<CompanyBoard> = ({
     );
 };
 
-export default CompanyBoard;
+export default ServiceList;

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {CompanyBoard} from '@/components';
 import { CompanyBoardProps } from '@/consts';
 import {queryAllCompany, AllCompanyProps, ResponseBodyType} from '@/servers';
-import { describe, it } from 'node:test';
 
 
 export default function Society() {
@@ -37,7 +36,8 @@ export default function Society() {
                 name: item.companyName,
                 description: item.description,
                 tag: item.labels,
-                member: new Array(7).fill(null)
+                member: new Array(7).fill(null),
+                url: `/company_detail/?id=${item.id}`,
             })
         })
 

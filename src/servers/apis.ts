@@ -19,6 +19,12 @@ export const queryServiceByID = async <T extends any>(id: string): Promise<Respo
   return response.json();
 }
 
+export const queryServiceByCompany = async <T extends any>(id: string): Promise<ResponseBodyType<T>> => {
+  const url = getUrl("/services/public/company") + `/${id}`;
+  const response = await fetch(url);
+  return response.json();
+}
+
 export const queryAllService = async <T extends any>(): Promise<ResponseBodyType<T>> => {
   const url = getUrl("/services/public");
   const response = await fetch(url);
