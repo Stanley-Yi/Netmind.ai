@@ -12,7 +12,8 @@ const nextConfig = {
         ];
     },
     env: {
-        PUBLIC_API_BASE_URL: "http://13.40.213.162:8000",
+        // PUBLIC_API_BASE_URL: "http://13.40.213.162:8000",
+        PUBLIC_API_BASE_URL: "https://xyz.netmind.ai/api",
     },
 }
 
