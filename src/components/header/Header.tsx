@@ -1,10 +1,11 @@
 'use client'
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from "next/link";
 import {useRouter, usePathname, useSearchParams} from "next/navigation";
-import { it } from "node:test";
+import Cookies from 'js-cookie';
+
 
 interface HeaderProps {
     style?: React.CSSProperties;
@@ -13,7 +14,35 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = () => {
 
     const router = useRouter();
-    const pathname = usePathname();
+
+    const [logStatus, setLogStatus] = useState(false);
+
+    useEffect(() => {
+        const checkToken = () => {
+          const token = Cookies.get('token');
+          if (token) {
+            setLogStatus(true);
+          } else {
+            setLogStatus(false);
+          }
+        };
+
+        // 设置定时器，每隔一定时间检查token
+        const intervalId = setInterval(checkToken, 500); // 每0.5秒检查一次
+
+        // 清除定时器
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const handleAccount = (account_url: string) => {
+        const token = Cookies.get('token');
+        if (!token) {
+            router.push(account_url);
+        } else {
+            Cookies.remove('token');
+        }
+    }
+
 
     const navigator_items = [
         {name: "Services", url: "/service"},
@@ -54,9 +83,9 @@ const Header: React.FC<HeaderProps> = () => {
                         </div>
 
                         <div className="w-[141px] h-[50px] flex-shrink-0 flex items-center justify-center">
-                            <button className="rounded-[25px] px-3 py-2 border border-black flex items-center justify-center cursor-pointer" onClick={() => router.push(account_url)}>
+                            <button className="rounded-[25px] px-3 py-2 border border-black flex items-center justify-center cursor-pointer" onClick={() => handleAccount(account_url)}>
                                 <span className="text-[#111] text-center font-roboto text-base font-normal leading-normal">
-                                    Log in | Sign up
+                                    {!logStatus ? "Log in | Sign up" : "Sign out"}
                                 </span>
                             </button>
                         </div>
