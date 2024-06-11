@@ -17,7 +17,7 @@ export default function Home() {
         Array.from(searchParams.entries()).forEach(([key, value]) => {
             if (key === 'token') {
                 // Cookies.set(key, value, { expires: 9 });
-                Cookies.set(key, value, { expires: 1 / 1440 });
+                Cookies.set(key, value, { expires: 7 });
             }
         });
         // Cookies.remove('token');
