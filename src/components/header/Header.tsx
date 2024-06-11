@@ -18,15 +18,15 @@ const Header: React.FC<HeaderProps> = () => {
     const navigator_items = [
         {name: "Services", url: "/service"},
         {name: "Society", url: "/society"},
-        {name: "Create Agent", url: "/"},
-        {name: "Entity", url: "/"},
+        {name: "Create Agent", url: null},
+        {name: "Entity", url: null},
         {name: <svg xmlns="http://www.w3.org/2000/svg" width="424" height="2" viewBox="0 0 524 2" fill="none">
                     <path d="M0 1H524" stroke="#222222" stroke-width="2"/>
-                </svg>, url: "/"},
+                </svg>, url: null},
     ]
 
-    // const account_url = 'https://accounts.protago-dev.com/?url=https://xyz.netmind.ai&sysCode=4912e615'
-    const account_url = 'https://accounts.protago-dev.com/?url=http://3.8.184.2:3000/&sysCode=4912e615'
+    const account_url = 'https://accounts.protago-dev.com/?url=https://xyz.netmind.ai&sysCode=4912e615'
+    // const account_url = 'https://accounts.protago-dev.com/?url=http://3.8.184.2:3000/&sysCode=4912e615'
 
     return (
         <>
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = () => {
 
                         <div className="w-[1300px] h-[20px] flex items-center justify-center">
                             {navigator_items.map((item, idx)  => (
-                                <div className="mx-[40px] flex items-center justify-center cursor-pointer" key={idx} onClick={() => router.push(item.url)}>
+                                <div className="mx-[40px] flex items-center justify-center cursor-pointer" key={idx} onClick={() => item.url && router.push(item.url)}>
                                     <span className="text-[#111] text-center font-roboto text-xl font-normal leading-normal">
                                         {item.name}
                                     </span>

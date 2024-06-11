@@ -54,6 +54,7 @@ export default function CompanyDetail() {
         const temp_list = [] as CompanyBoardProps[];
         serviceInfo.forEach(item => {
             temp_list.push({
+                id: item.id,
                 name: item.XYZ_service_name,
                 description: item.description,
                 tag: item.tags,

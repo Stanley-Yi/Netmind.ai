@@ -27,6 +27,7 @@ export interface ServiceBoardProps {
 }
 
 export interface CompanyBoardProps {
+    id: string;
     name: string;
     description: string;
     tag: string[];

@@ -65,6 +65,7 @@ const ServiceBoard: React.FC<ServiceBoardSection> = ({ section, services }) => {
                     {services && services.map((item, idx) => (
                         <div className="w-[351px] h-[199px] flex justify-start" key={idx}>
                             <div className="w-[335px] h-full overflow-hidden relative flex items-end justify-start cursor-pointer" onClick={() => router.push(item.url)}>
+                                <div className="absolute w-full h-full bg-black bg-opacity-40 z-20"></div>
                                 <img
                                     src={item.image}
                                     alt={item.title}

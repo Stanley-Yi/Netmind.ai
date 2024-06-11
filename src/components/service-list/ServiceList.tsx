@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { CompanyBoardProps } from '@/consts';
+import { useRouter } from "next/router";
 
 
 interface CompanyBoard {
@@ -15,7 +16,8 @@ const ServiceList: React.FC<CompanyBoard> = ({
     service_list,
     page_num
 }) => {
-
+    const router = useRouter();
+    
     return (
         <div className="h-auto my-[38px]">
             <div className="h-[70px] flex justify-start my-[36px]">
@@ -26,9 +28,9 @@ const ServiceList: React.FC<CompanyBoard> = ({
 
             <div className="grid grid-cols-3 gap-4">
                 {service_list.map((item: CompanyBoardProps, idx: number) => (
-                    <div className="w-[560px] h-[268px] rounded-[20px] backdrop-blur-[10px] bg-neutral-900 flex flex-col overflow-hidden" key={idx}>
+                    <div className="w-[560px] h-[268px] rounded-[20px] backdrop-blur-[10px] bg-neutral-900 flex flex-col overflow-hidden cursor-pointer" key={idx} onClick={() => router.push(`/service_detail/?id=${item.id}`)}>
                         <div className="ml-[16px] mt-[16px] text-white text-2xl font-normal font-['Inter']">{item.name}</div>
-                        <div className="w-[522px] ml-[16px] mt-[10px] text-neutral-400 text-xl font-normal font-inter">{item.description}</div>
+                        <div className="w-[522px] ml-[16px] mt-[10px] text-neutral-400 text-xl font-normal font-inter max-h-[90px] overflow-hidden">{item.description}</div>
                         <div className="w-full h-8 mx-[16px] mt-[16px] flex">
                             {item.tag?.map((elem, index) => {
                                 const bgColorClass = index % 2 === 0 ? "bg-[#2f2b4a]" : "bg-[#3a3424]";
